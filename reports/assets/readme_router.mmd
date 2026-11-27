@@ -1,0 +1,15 @@
+stateDiagram-v2
+    [*] --> Intake
+    Intake --> End: blocked
+    Intake --> Router: allowed
+    Router --> Agent: retrieve
+    Router --> Verify: verify_claim
+    Router --> Answer: direct_answer
+    Agent --> Tools: tool call present
+    Tools --> Agent: tool result appended
+    Agent --> Relevancy: no tool call
+    Agent --> Answer: three attempts reached
+    Relevancy --> Answer: advisory gate
+    Verify --> Answer
+    Answer --> [*]
+    End --> [*]

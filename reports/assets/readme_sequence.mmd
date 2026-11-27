@@ -1,0 +1,25 @@
+sequenceDiagram
+    actor User
+    participant UI as Streamlit UI
+    participant Graph as LangGraph
+    participant Guard as Content guard
+    participant LLM as Router and agent model
+    participant Neo4j
+    participant Qdrant
+
+    User->>UI: Submit question
+    UI->>Graph: stream input state
+    Graph->>Guard: screen_user_message
+    Guard-->>Graph: allowed or blocked
+    Graph->>LLM: classify route
+    LLM-->>Graph: RouterDecision
+    Graph->>LLM: choose retrieval tool
+    LLM-->>Graph: tool call
+    Graph->>Neo4j: graph_retrieve
+    Neo4j-->>Graph: chunks and triples
+    Graph->>Qdrant: similarity fallback if empty
+    Qdrant-->>Graph: chunks
+    Graph->>LLM: generate from full corpus
+    LLM-->>UI: streamed tokens
+    UI-->>User: rendered answer
+    Graph->>Graph: checkpoint state by thread

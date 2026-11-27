@@ -1,0 +1,40 @@
+{
+  "08dfc72b-8af7-46c5-8810-0f4bd4b475f6": {
+    "id": "08dfc72b-8af7-46c5-8810-0f4bd4b475f6",
+    "name": "Research Gap Analysis",
+    "created_at": "2026-11-26T20:13:38.426788",
+    "is_named": true
+  },
+  "72e335d2-b8a9-47ba-8c43-04cd9c491dad": {
+    "id": "72e335d2-b8a9-47ba-8c43-04cd9c491dad",
+    "name": "Detailed Research Paper Summary",
+    "created_at": "2026-11-26T20:14:52.664076",
+    "is_named": true
+  },
+  "0352dba1-3d2c-4408-bbd5-b2b0b05cb846": {
+    "id": "0352dba1-3d2c-4408-bbd5-b2b0b05cb846",
+    "name": "Paper analysis and gaps",
+    "created_at": "2026-11-26T22:55:24.018613",
+    "is_named": true
+  },
+  "5b2b963a-96f9-43e8-9b6f-026f0ca31e3c": {
+    "id": "5b2b963a-96f9-43e8-9b6f-026f0ca31e3c",
+    "name": "Gaps Addressed by Paper",
+    "created_at": "2026-11-26T23:07:27.842652",
+    "is_named": true
+  },
+  "evaluation": {
+    "id": "evaluation",
+    "name": "Evaluation",
+    "created_at": "1970-01-01T00:00:00",
+    "is_named": true,
+    "kind": "evaluation"
+  },
+  "3ab3fa36-c40e-4c7d-82bc-d934288056ce": {
+    "id": "3ab3fa36-c40e-4c7d-82bc-d934288056ce",
+    "name": "New Session",
+    "created_at": "2026-11-27T02:06:37.952251",
+    "is_named": false,
+    "kind": "research"
+  }
+}

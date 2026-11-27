@@ -1,0 +1,43 @@
+flowchart TD
+    U["Researcher"] --> UI["Streamlit application"]
+
+    subgraph Sources["Source acquisition"]
+        F["File upload"]
+        W["Web URL"]
+        A["ArXiv ID or title"]
+    end
+
+    UI --> Sources
+    Sources --> Guard["Content guard"]
+    Guard -->|Rejected| Reject["Refuse and report"]
+    Guard -->|Accepted| Load["Hierarchical loader"]
+
+    Load --> Chunk["Section-aware chunking"]
+    Chunk --> Embed["Cached embeddings"]
+
+    Embed --> Qd["Qdrant collections"]
+    Embed --> Neo["Neo4j two-level graph"]
+
+    UI --> Chat["Research chat"]
+    Chat --> LG["LangGraph state machine"]
+    LG --> Router["Router LLM"]
+    Router -->|retrieve| Agent["Retrieval agent"]
+    Router -->|verify_claim| Verify["Claim verification"]
+    Router -->|direct_answer| Answer["Answer generation"]
+
+    Agent --> Tools["Graph, vector, and web tools"]
+    Tools --> Qd
+    Tools --> Neo
+    Tools --> Tavily["Tavily web search"]
+
+    Agent --> Answer
+    Verify --> Answer
+    Answer --> Stream["Token streaming"]
+    Stream --> UI
+
+    UI --> Studio["Research intelligence studio"]
+    Studio --> Tools13["13 direct-PDF tools"]
+    Tools13 --> LLM["GPT-5.4 mini structured output"]
+
+    UI --> KB["Knowledge base platform"]
+    KB --> Neo

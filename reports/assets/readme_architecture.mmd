@@ -1,0 +1,55 @@
+flowchart LR
+    subgraph Presentation["Presentation"]
+        UI["app.py"]
+        Viz["graph_visualizer.py"]
+    end
+
+    subgraph Orchestration["Orchestration"]
+        Graph["rag_graph.py"]
+        Btw["btw_handler.py"]
+        Tools["research_tools.py"]
+        Lib["library.py"]
+    end
+
+    subgraph Safety["Safety and models"]
+        Guard["content_guard.py"]
+        Models["models.py"]
+    end
+
+    subgraph Storage["Storage and retrieval"]
+        VS["vector_store.py"]
+        GS["graph_store.py"]
+        SS["session_store.py"]
+    end
+
+    subgraph External["External services"]
+        OpenAI["OpenAI API"]
+        Qdrant["Qdrant Cloud"]
+        Neo4j["Neo4j"]
+        Tavily["Tavily API"]
+    end
+
+    UI --> Graph
+    UI --> Btw
+    UI --> Tools
+    UI --> Viz
+    UI --> Lib
+    Graph --> Guard
+    Graph --> Models
+    Graph --> VS
+    Graph --> GS
+    Graph --> Tavily
+    Tools --> Guard
+    Tools --> Models
+    Tools --> GS
+    Lib --> Guard
+    Lib --> SS
+    Lib --> VS
+    VS --> Qdrant
+    GS --> Neo4j
+    VS --> OpenAI
+    GS --> OpenAI
+    Graph --> OpenAI
+    Tools --> OpenAI
+    Btw --> OpenAI
+    Btw --> Tavily
